@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Videojuegos</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+<body class="container">
+
+  <h3 class="center-align">Registro de Videojuegos</h3>
+
+  <!-- Formulario -->
+  <form action="/videojuegos" method="POST" class="card-panel">
+    <div class="input-field">
+      <input id="titulo" type="text" name="titulo" required>
+      <label for="titulo">Título</label>
+    </div>
+
+    <div class="input-field">
+      <input id="genero" type="text" name="genero" required>
+      <label for="genero">Género</label>
+    </div>
+
+    <div class="input-field">
+      <input id="plataforma" type="text" name="plataforma" required>
+      <label for="plataforma">Plataforma</label>
+    </div>
+
+    <div class="input-field">
+      <input id="anio" type="number" name="anio" required>
+      <label for="anio">Año de lanzamiento</label>
+    </div>
+
+    <div class="input-field">
+      <input id="compania" type="text" name="compania" required>
+      <label for="compania">Compañía</label>
+    </div>
+
+    <button type="submit" class="waves-effect waves-light btn">Agregar</button>
+    <a href="/" class="waves-effect waves-light btn grey">Inicio</a>
+  </form>
+
+  <!-- Tabla de registros -->
+  <h4 class="center-align">Lista de Videojuegos</h4>
+  <% if (videojuegos.length === 0) { %>
+    <p>No hay videojuegos registrados.</p>
+  <% } else { %>
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Género</th>
+          <th>Plataforma</th>
+          <th>Año</th>
+          <th>Compañía</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% videojuegos.forEach(v => { %>
+          <tr>
+            <td><%= v.titulo %></td>
+            <td><%= v.genero %></td>
+            <td><%= v.plataforma %></td>
+            <td><%= v.anio %></td>
+            <td><%= v.compania %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

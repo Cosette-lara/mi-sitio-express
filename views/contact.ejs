@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="grey lighten-4">
+
+  <!-- NAV -->
+  <nav class="blue darken-3">
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo">Mi Sitio</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/"><i class="material-icons left">home</i>Inicio</a></li>
+        <li><a href="/about"><i class="material-icons left">info</i>Acerca de</a></li>
+        <li class="active"><a href="/contact"><i class="material-icons left">mail</i>Contacto</a></li>
+        <li><a href="/admin"><i class="material-icons left">admin_panel_settings</i>Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main class="container" style="margin-top: 2rem;">
+    <h4 class="blue-text text-darken-3 center-align">Formulario de Contacto</h4>
+    <div class="card-panel">
+      <form action="/contact" method="POST">
+        <div class="input-field">
+          <input id="nombre" type="text" name="nombre" required>
+          <label for="nombre">Nombre</label>
+        </div>
+
+        <div class="input-field">
+          <input id="email" type="email" name="email" required>
+          <label for="email">Correo electrónico</label>
+        </div>
+
+        <div class="input-field">
+          <textarea id="mensaje" class="materialize-textarea" name="mensaje" required></textarea>
+          <label for="mensaje">Mensaje</label>
+        </div>
+
+        <button type="submit" class="btn waves-effect waves-light blue darken-3">
+          Enviar <i class="material-icons right">send</i>
+        </button>
+        <a href="/" class="btn grey"><i class="material-icons left">arrow_back</i>Volver</a>
+      </form>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer blue darken-3">
+    <div class="container">© 2025 Mi Sitio</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="grey lighten-4">
+
+  <!-- NAV -->
+  <nav class="blue darken-3">
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo">Mi Sitio</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/"><i class="material-icons left">home</i>Inicio</a></li>
+        <li><a href="/about"><i class="material-icons left">info</i>Acerca de</a></li>
+        <li><a href="/contact"><i class="material-icons left">mail</i>Contacto</a></li>
+        <li class="active"><a href="/admin"><i class="material-icons left">admin_panel_settings</i>Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <main class="container" style="margin-top: 2rem;">
+    <h4 class="blue-text text-darken-3 center-align">Mensajes Recibidos</h4>
+    <a href="/contact" class="btn blue darken-3 waves-effect waves-light">
+      <i class="material-icons left">mail</i>Ir al formulario
+    </a>
+
+    <% if (messages.length === 0) { %>
+      <p class="red-text">No hay mensajes aún.</p>
+    <% } else { %>
+      <ul class="collection">
+        <% messages.forEach(m => { %>
+          <li class="collection-item avatar">
+            <i class="material-icons circle blue">person</i>
+            <span class="title"><%= m.nombre %></span>
+            <p><%= m.email %><br>
+            <em><%= m.mensaje %></em></p>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer blue darken-3">
+    <div class="container">© 2025 Mi Sitio</div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

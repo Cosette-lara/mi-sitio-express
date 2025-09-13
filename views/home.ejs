@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <nav class="blue darken-2">
+    <div class="nav-wrapper container">
+      <a href="/" class="brand-logo">Mi Sitio</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/about">Acerca de</a></li>
+        <li><a href="/contact">Contacto</a></li>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/videojuegos">Videojuegos</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Menú lateral para móviles -->
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/about">Acerca de</a></li>
+    <li><a href="/contact">Contacto</a></li>
+    <li><a href="/admin">Admin</a></li>
+    <li><a href="/videojuegos">Videojuegos</a></li>
+  </ul>
+
+  <!-- Contenido principal -->
+  <div class="container" style="margin-top: 40px;">
+    <div class="center-align">
+      <h3 class="blue-text text-darken-2">Bienvenido a la Página de Inicio</h3>
+      <p class="flow-text">Laboratorio 4 pagina en node.js.</p>
+    </div>
+
+    <!-- Listado de Videojuegos -->
+    <div class="section">
+      <h4 class="center-align">🎮 Videojuegos Registrados</h4>
+      <% if (videojuegos && videojuegos.length === 0) { %>
+        <p class="center-align">No hay videojuegos registrados aún. <a href="/videojuegos">Agrega uno aquí</a>.</p>
+      <% } else { %>
+        <div class="responsive-table">
+          <table class="highlight centered striped">
+            <thead class="blue lighten-2">
+              <tr>
+                <th>Título</th>
+                <th>Género</th>
+                <th>Plataforma</th>
+                <th>Año</th>
+                <th>Compañía</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% videojuegos.forEach(v => { %>
+                <tr>
+                  <td><%= v.titulo %></td>
+                  <td><%= v.genero %></td>
+                  <td><%= v.plataforma %></td>
+                  <td><%= v.anio %></td>
+                  <td><%= v.compania %></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer blue darken-2" style="margin-top: 50px;">
+    <div class="container center-align">
+      © <%= new Date().getFullYear() %> Mi Sitio Express
+    </div>
+  </footer>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    // Inicializar sidenav para móviles
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems);
+    });
+  </script>
+</body>
+</html>
